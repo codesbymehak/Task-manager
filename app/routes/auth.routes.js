@@ -9,7 +9,7 @@ module.exports = [
             body: {
                 name: Joi.string().required(),
                 email: Joi.string().email().required(),
-                password: Joi.string().min(6).required()
+                password: Joi.string().min(8).required()
             },
             group: 'Auth',
             description: 'Register a new user'

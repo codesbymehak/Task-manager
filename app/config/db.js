@@ -2,7 +2,9 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
     try {
-        const conn = await mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/task-manager');
+        await mongoose.connect(
+            process.env.MONGO_URI || 'mongodb://localhost:27017/task-manager'
+        );
         console.log("MongoDB Connected");
     } catch (err) {
         console.error(`Error: ${err.message}`);
@@ -10,4 +12,4 @@ const connectDB = async () => {
     }
 };
 
-module.exports = connectDB;
+module.exports = connectDB; 

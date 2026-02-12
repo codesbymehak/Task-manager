@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
+const { USER_STATUS } = require('../utils/constants');
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -15,7 +16,17 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: [true, 'Please provide a password'],
-        minlength: 6,
+        minlength: 8,
+        select: false
+    },
+    status: {
+        type: String,
+        enum: Object.values(USER_STATUS),
+        default: USER_STATUS.ACTIVE
+    },
+    isDeleted: {
+        type: Boolean,
+        default: false,
         select: false
     }
 }, {

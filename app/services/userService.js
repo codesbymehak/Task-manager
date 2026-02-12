@@ -32,7 +32,7 @@ exports.loginUser = async (email, password) => {
         throw error;
     }
 
-    const user = await User.findOne({ email }).select('+password');
+    const user = await User.findOne({ email, isDeleted: false }).select('+password');
     if (!user) {
         const error = new Error('Invalid credentials');
         error.statusCode = 401;

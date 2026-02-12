@@ -14,9 +14,18 @@ const projectSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
+    },
+    members: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }],
+    isDeleted: {
+        type: Boolean,
+        default: false,
+        select: false
     }
 }, {
     timestamps: true
 });
-
+projectSchema.index({ owner: 1 });
 module.exports = mongoose.model('Project', projectSchema);

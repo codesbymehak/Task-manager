@@ -17,6 +17,7 @@ app.use(express.json());
 
 // Routes
 require('./app/startup/routes')(app);
+require('./app/startup/swagger')(app);
 
 // Error Handler
 app.use(errorHandler);

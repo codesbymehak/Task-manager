@@ -4,6 +4,10 @@ module.exports = {
         IN_PROGRESS: 'in_progress',
         DONE: 'done'
     },
+    USER_STATUS: {
+        ACTIVE: 'active',
+        INACTIVE: 'inactive'
+    },
     AVAILABLE_AUTHS: {
         USER: 'user'
     },

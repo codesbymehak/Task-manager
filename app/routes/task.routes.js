@@ -36,7 +36,9 @@ module.exports = [
                 status: Joi.string().optional(),
                 priority: Joi.string().optional(),
                 assignee: Joi.string().optional(),
-                project: Joi.string().optional()
+                project: Joi.string().optional(),
+                searchByTask: Joi.string().optional(),
+                dueDate: Joi.date().optional()
             },
             group: 'Tasks',
             description: 'Get tasks with filtering' // Note: 'query' validation handles the schema
